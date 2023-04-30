@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HalamanController;
 use App\Http\Controllers\SiswaController;
 use Illuminate\Support\Facades\Route;
 
@@ -15,9 +16,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 //berfungsi, apabila kita mengakses localhost:8000/ ==> itu akan mengarahkan ke viewnya adalah file view welcome
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 // //membuat route baru yaitu localhost:8000/siswa ==> akan mengembalikan info saya siswa
 // Route::get('/siswa', function () {
@@ -43,3 +44,7 @@ Route::get('/', function () {
 Route::get('siswa', [SiswaController::class, 'index']);
 Route::get('siswa/{id}', [SiswaController::class, 'detail'])
 ->where('id', '[0-9]+');
+
+Route::get('/', [HalamanController::class, 'index']);
+Route::get('/about', [HalamanController::class, 'about']);
+Route::get('/contact', [HalamanController::class, 'contact']);
